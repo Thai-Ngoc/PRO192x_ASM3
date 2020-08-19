@@ -55,4 +55,11 @@ public class BookList {
 			}
 		}
 	}
+	
+	public void Display() {
+		System.out.printf("%-10s%-20s%-20s%-20s", "ID", "Title", "Author", "Is borrowed");
+		for (Book book : myBooks) {
+			System.out.println(book.toString());
+		}
+	}
 }
