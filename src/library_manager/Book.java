@@ -1,18 +1,19 @@
 package library_manager;
 
 public class Book {
+	//private fields
 	private String id;
 	private String title;
 	private String author;
 	private Boolean isBorrowed = false;
-	
+	//constructor
 	public Book(String id, String title, String author, Boolean isBorrowed) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.isBorrowed = isBorrowed;
 	}
-
+	//getters and setters
 	public String getId() {
 		return id;
 	}
@@ -45,7 +46,7 @@ public class Book {
 		this.isBorrowed = isBorrowed;
 	}
 	
-	public String toString() {
+	public String toString() { //method format outputs
 		return String.format("%-10s%-20s%-20s%-20b", id, title, author, isBorrowed);
 	}
 	
