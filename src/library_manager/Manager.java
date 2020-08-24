@@ -2,6 +2,34 @@ package library_manager;
 import java.util.*;
 public class Manager {
 	private static Scanner in = new Scanner(System.in);
+	
+	private static int intCheck() {
+        
+        //Require entering an integer
+        int input = 0;
+        boolean check = false;
+        while (!check) {
+            if (in.hasNextInt()) {
+                input = in.nextInt();
+                check = true;
+                return input;
+            } else {
+                System.out.print("Please enter an integer value: ");
+                check = false;
+            }
+            in.next();
+        } 
+        return input;
+    }
+	private static int check(int n) {
+        
+        //Require entering 0 or 1
+        while (n < 1 || n > 5) {
+            System.out.print("Please enter an integer in range 1 - 5 ");
+            n = intCheck();
+        }
+        return n;
+    }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,7 +44,8 @@ public class Manager {
 			System.out.println("4. Borrow a book by book id");
 			System.out.println("5. Exit");
 			System.out.print("Your choice: ");
-			int choice = in.nextInt();
+			int choice = intCheck();
+			choice = check(choice);
 			
 			switch(choice) {
 			case 1:

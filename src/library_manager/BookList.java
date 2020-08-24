@@ -2,6 +2,34 @@ package library_manager;
 import java.util.*;
 public class BookList {
 	Scanner in;
+	private int intCheck() {
+        
+        //Require entering an integer
+        int input = 0;
+        boolean check = false;
+        while (!check) {
+            if (in.hasNextInt()) {
+                input = in.nextInt();
+                check = true;
+                return input;
+            } else {
+                System.out.print("Please enter an integer value: ");
+                check = false;
+            }
+            in.next();
+        } 
+        return input;
+    }
+	private int check(int n) {
+        
+        //Require entering 0 or 1
+        while (n < 0 || n > 1) {
+            System.out.print("Please enter 0 or 1 ");
+            n = intCheck();
+        }
+        return n;
+    }
+	
 	List<Book> myBooks = new ArrayList<>();
 	public void add() {
 		//enter information of books by Scanner
@@ -28,14 +56,15 @@ public class BookList {
 		String author = in.nextLine();
 		
 		System.out.print("Is borrowed (1 = yes, 0 = no): ");
-		int choice = in.nextInt();
+		int choice = intCheck();
+		choice = check(choice);
 		
 		Boolean isBorrowed = false;
 		switch(choice) {
 		case 1:
 			isBorrowed = true;
 			break;
-		case 2:
+		case 0:
 			isBorrowed = false;
 			break;
 		}
